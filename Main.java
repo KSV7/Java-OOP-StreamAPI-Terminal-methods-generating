@@ -14,8 +14,12 @@ public class Main {
 		
 		List<ProgrammingLanguage> languages = List.of(lang1, lang2, lang3, lang4, lang5);
 		
+		System.out.println("Input difficulty level (EASY, MEDIUM, HARD):");
+		Scanner sc = new Scanner(System.in);
+		String l = sc.nextLine().toUpperCase();
+		
 		Optional<ProgrammingLanguage> findFirst = languages.stream()
-        .filter(e -> e.getComplexity().equals(DifficultyLevel.EASY))
+        .filter(e -> e.getComplexity().equals(DifficultyLevel.valueOf(l)))
         .findAny();
 		
 		System.out.println(findFirst);
